@@ -1,0 +1,18 @@
+name: Database Deployment
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install MySQL client
+        run: sudo apt-get install -y mysql-client
+      - name: Run schema changes on Azure MySQL
+        run: |
+          mysql -h ${{ secrets.DB_HOST }} \
+                -u ${{ secrets.DB_ADMIN_USER }} \
+                -p${{ secrets.DB_PASSWORD }} \
+                ${{ secrets.DB_NAME }} < schema_changes_git.sql
+|
