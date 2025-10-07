@@ -1,4 +1,4 @@
-- Idempotent starter schema for Azure MySQL
+-- Idempotent starter schema for Azure MySQL
 -- Creates a demo table if it does not exist.
 CREATE TABLE IF NOT EXISTS demo_ci_cd (
 id INT AUTO_INCREMENT PRIMARY KEY,
