@@ -15,4 +15,4 @@ jobs:
                 -u ${{ secrets.DB_ADMIN_USER }} \
                 -p${{ secrets.DB_PASSWORD }} \
                 ${{ secrets.DB_NAME }} < schema_changes_git.sql
-|
+
